@@ -116,7 +116,7 @@ export default {
     },
     classes: {
       type: Object,
-      default: {},
+      default: () => ({}),
     },
   },
 
@@ -135,6 +135,7 @@ export default {
 
   created () {
     this.styles = Object.assign({}, this.$options.defaultStyles, this.classes)
+
     window.VoerroModalEvent.$on('show', (optionsOrId, options) => {
       this.showModal(optionsOrId, options)
     })
